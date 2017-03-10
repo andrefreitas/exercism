@@ -1,8 +1,11 @@
 class Robot
+  ALPHABET = [*'A'..'Z']
+  NUMBERS = [*'0'..'9']
+
   def generate_name
-    rng = Random.new
-    chars = ('A'..'Z').to_a.shuffle(random: rng).slice(0, 2).join
-    numbers = "%03d" % rng.rand(0..999)
+    srand
+    chars = (1..2).map{ALPHABET.sample}.join
+    numbers = (1..3).map{NUMBERS.sample}.join
     "#{chars}#{numbers}"
   end
 
