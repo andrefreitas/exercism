@@ -1,7 +1,9 @@
+require "set"
+
 class Robot
   ALPHABET = [*'A'..'Z']
   NUMBERS = [*'0'..'9']
-  @@names = []
+  @@names = Set.new
 
   def reset
     @name = nil
@@ -17,7 +19,7 @@ class Robot
       name = generate_random_name
     end until !@@names.include? name
 
-    @@names.push(name)
+    @@names.add(name)
     name
   end
 
