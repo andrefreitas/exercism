@@ -1,37 +1,10 @@
 class Prime
-  # def self.nth(n)
-  #   count = 0
-  #   num = 0
-  #
-  #   while count < n
-  #     num += 1
-  #     count += 1 if is_prime(num)
-  #   end
-  #
-  #   num
-  # end
-  #
-  # def self.is_prime num
-  #   self.primes_until(num).last == num
-  # end
-  #
-  # def self.primes_until num
-  #   range = (2..num).to_a
-  #   range.each do |prime|
-  #     range.reject!{|n| n!= prime && n % prime == 0}
-  #   end
-  # end
-
   def self.nth(nth)
-    candidates = self.candidates
+    raise ArgumentError if nth < 1
     primes = []
 
     candidates.each do |candidate|
-      primes.push candidate
-      primes.each do |prime|
-        primes.reject!{|n| n!= prime && n % prime == 0}
-      end
-      
+      primes.push candidate if primes.none? { |n| (candidate % n).zero? }
       return primes.last if primes.length == nth
     end
   end
@@ -45,4 +18,8 @@ class Prime
       end
     end
   end
+end
+
+class BookKeeping
+  VERSION = 1
 end
