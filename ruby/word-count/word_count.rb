@@ -1,7 +1,7 @@
+
 class Phrase
-  SEPARATORS = /(\s|\n|\.|:|,)+/
-  EXTRA = /!|&|@|\$|%|\^|&/
   QUOTES = /(^')|('$)/
+  WORD = /(?:\w|')+/
 
   def initialize(phrase)
     @phrase = phrase
@@ -18,11 +18,8 @@ class Phrase
 
   def words
     @phrase
-      .downcase
-      .gsub(SEPARATORS, ' ')
-      .gsub(EXTRA, '')
-      .split(' ')
-      .map { |word| word.gsub(QUOTES, '') }
+      .scan(WORD)
+      .map { |word| word.downcase.gsub(QUOTES, '') }
   end
 end
 
