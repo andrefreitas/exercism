@@ -9,7 +9,7 @@ class Phrase
 
   def word_count
     words
-      .group_by { |v| v }
+      .group_by(&:itself)
       .map { |k, v| [k, v.count] }
       .to_h
   end
