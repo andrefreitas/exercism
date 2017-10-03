@@ -6,5 +6,5 @@ val dnaMap = mapOf(
 )
 
 fun transcribeToRna(dna: String): String {
-  return dna.map{c -> dnaMap[c]}.joinToString("")
+  return dna.map{dnaMap[it]}.joinToString("")
 }
