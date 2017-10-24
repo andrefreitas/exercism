@@ -10,9 +10,5 @@ object Scrabble {
     else -> 0
   }
 
-  fun scoreWord(word: String): Int {
-    return word
-            .map{scoreLetter(it)}
-            .sum()
-  }
+  fun scoreWord(word: String) = word.sumBy{scoreLetter(it)}
 }
