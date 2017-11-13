@@ -20,8 +20,5 @@ object Luhn {
     }
   }
 
-  fun isValid(num: String): Boolean {
-    if (!onlyNumbersAndSpaces(num)) return false
-    return doubleDigits(num).sum() % 10 == 0
-  }
+  fun isValid(num: String) = onlyNumbersAndSpaces(num) &&  doubleDigits(num).sum() % 10 == 0
 }
