@@ -13,7 +13,7 @@ object Luhn {
     val digits = Regex("[0-9]")
       .findAll(num)
       .map{it.value.toInt()}
-      .toMutableList()
+      .toList()
 
     return digits.reversed().mapIndexed {
       i, num -> if ((i + 1) % 2 == 0) doubleDigit(num) else num
