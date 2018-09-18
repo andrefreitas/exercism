@@ -18,7 +18,7 @@ defmodule Bob do
   end
 
   def yell?(input) do
-     letters?(input) and String.upcase(input) == input
+    letters?(input) and String.upcase(input) == input
   end
 
   def letters?(input) do
